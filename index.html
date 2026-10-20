@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b08">
+  <meta name="description" content="Jayden Aaric's personal portfolio featuring programming, networking, and IoT projects.">
+
+  <title>Jayden Aaric | Matrix Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- HEADER -->
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Go to home">
+      <span class="brand-mark">[</span>JAYDEN<span class="brand-mark">]</span><span class="brand-cursor">_</span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle"
+      aria-label="Toggle navigation" aria-controls="nav"
+      aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#home" class="nav-link active"><span>01.</span> home</a>
+      <a href="#about" class="nav-link"><span>02.</span> about</a>
+      <a href="#skills" class="nav-link"><span>03.</span> skills</a>
+      <a href="#projects" class="nav-link"><span>04.</span> projects</a>
+      <a href="#education" class="nav-link"><span>05.</span> education</a>
+      <a href="#contact" class="nav-link"><span>06.</span> contact</a>
+    </nav>
+
+    <div class="system-status">
+      <span class="status-dot"></span> SYSTEM ONLINE
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section class="hero section-shell" id="home">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span class="prompt">guest@jaydenaaric:</span> whoami?</p>
+
+        <p class="availability">
+          <span class="status-dot"></span> NETWORK COMPUTING STUDENT
+        </p>
+
+        <h1>
+          Hi, I'm
+          <span class="glitch" data-text="Jayden Aaric">Jayden Aaric</span><br>
+          <span class="headline-outline">I build things</span><span class="terminal-caret">_</span>
+        </h1>
+
+        <div class="type-line">
+          <span class="type-prefix">&gt;</span>
+          <span id="typed-text">Developer</span><span class="typing-caret">▋</span>
+        </div>
+
+        <p class="hero-description">
+          A technology enthusiast exploring software development,
+          networking, IoT, and creative solutions to real-world problems.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">
+            <span>./view_projects</span><span aria-hidden="true">↗</span>
+          </a>
+          <a class="btn btn-ghost" href="#contact">./connect</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i class="mini-dot"></i> Kuching, Sarawak</span>
+          <span>STATUS: <b>LEARNING_MODE</b></span>
+        </div>
+      </div>
+
+      <!-- RECTANGULAR PROFILE -->
+      <div class="hero-visual reveal">
+        <div class="visual-top">
+          <span>MyPersonalPortfolio</span>
+          <span>● ● ●</span>
+        </div>
+
+        <div class="terminal-card">
+          <div class="terminal-line"><span class="line-number">01</span><span class="terminal-green">$</span> initializing profile...</div>
+          <div class="terminal-line"><span class="line-number">02</span><span class="terminal-green">✓</span> identity loaded</div>
+          <div class="terminal-line"><span class="line-number">03</span><span class="terminal-green">✓</span> curiosity detected</div>
+          <div class="terminal-line"><span class="line-number">04</span><span class="terminal-green">✓</span> problem-solving mode enabled</div>
+
+          <div class="terminal-gap"></div>
+
+          <div class="profile-placeholder" id="profile-placeholder">
+            <img src="images/profile.jpg" alt="Jayden's profile photo">
+            <div class="profile-fallback" id="profile-fallback">
+              <span class="avatar-brackets">&lt; / &gt;</span>
+              <span>ADD_PROFILE_IMAGE</span>
+              <small>images/profile.jpg</small>
+            </div>
+          </div>
+
+          <div class="profile-caption">
+            <span class="terminal-green">USER:</span> JAYDEN AARIC
+            <span class="profile-caption-status">ONLINE</span>
+          </div>
+
+          <div class="terminal-json">
+            <span class="json-key">const</span> developer = {<br>
+            &nbsp; name: <span class="json-string">"Jayden Aaric"</span>,<br>
+            &nbsp; focus: <span class="json-string">"Network Computing"</span>,<br>
+            &nbsp; mindset: <span class="json-string">"Build. Test. Improve."</span><br>
+            };<span class="typing-caret">▋</span>
+          </div>
+        </div>
+
+        <div class="floating-tag tag-one">&lt;HTML /&gt;</div>
+        <div class="floating-tag tag-two">{ code }</div>
+        <div class="visual-grid"></div>
+      </div>
+
+      <a class="scroll-cue" href="#about">
+        <span class="scroll-wheel"></span> SCROLL TO EXPLORE
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section-shell section-block" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="prompt">01 //</span> profile.txt</p>
+        <h2>About <span class="green">me</span></h2>
+        <p class="section-subtitle">A quick look behind the keyboard.</p>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-terminal reveal">
+          <div class="window-bar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span>about_me.md</span>
+            <span class="window-lock">[READ ONLY]</span>
+          </div>
+
+          <div class="code-content">
+            <p><span class="code-muted">01</span> <span class="code-purple">class</span> <span class="code-yellow">Jayden</span>:</p>
+            <p><span class="code-muted">02</span> &nbsp;&nbsp;location = <span class="code-string">"Kuching, Sarawak"</span></p>
+            <p><span class="code-muted">03</span> &nbsp;&nbsp;study = <span class="code-string">"Network Computing"</span></p>
+            <p><span class="code-muted">04</span> &nbsp;&nbsp;interests = [</p>
+            <p><span class="code-muted">05</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Software Development"</span>,</p>
+            <p><span class="code-muted">06</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"IoT & Networking"</span>,</p>
+            <p><span class="code-muted">07</span> &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">"Creative Technology"</span></p>
+            <p><span class="code-muted">08</span> &nbsp;&nbsp;]</p>
+            <p><span class="code-muted">09</span> &nbsp;&nbsp;<span class="code-comment"># Always learning something new.</span></p>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <p class="lead">Curious by nature. Builder by practice.</p>
+          <p>
+            I'm a Network Computing student at Universiti Malaysia Sarawak
+            (UNIMAS) with a background in Electrical Engineering
+            (Communication). I enjoy turning ideas into practical projects
+            and learning how software, devices, and networks work together.
+          </p>
+          <p>
+            My experience includes academic software projects, an IoT medicine
+            dispenser, and industrial training exposure to energy and utility
+            operations. I'm looking to keep building my technical skills
+            through hands-on projects and collaboration.
+          </p>
+
+          <div class="stats-grid">
+            <div class="stat"><strong data-count="6">0</strong><span>PROJECT AREAS</span></div>
+            <div class="stat"><strong data-count="5">0</strong><span>TECH FOCUS AREAS</span></div>
+            <div class="stat"><strong data-count="6">0</strong><span>GROWTH MINDSET</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section-shell section-block" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="prompt">02 //</span> toolkit.json</p>
+        <h2>My <span class="green">toolkit</span></h2>
+        <p class="section-subtitle">Tools and topics I'm learning and working with.</p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-panel reveal">
+          <div class="skill-icon">01</div>
+          <h3>Programming</h3>
+          <p>Building interfaces, application logic, and practical coursework projects.</p>
+          <div class="chip-list">
+            <span>Java</span><span>C++</span><span>JavaScript</span>
+            <span>PHP</span><span>HTML</span><span>CSS</span>
+          </div>
+          <div class="panel-foot">[ APPLICATION_LAYER ]</div>
+        </article>
+
+        <article class="skill-panel reveal">
+          <div class="skill-icon">02</div>
+          <h3>Networking & IoT</h3>
+          <p>Connecting devices, thinking through system design, and monitoring data.</p>
+          <div class="chip-list">
+            <span>ESP8266</span><span>IoT</span><span>Networking</span>
+            <span>Device Config</span><span>Troubleshooting</span>
+          </div>
+          <div class="panel-foot">[ CONNECTIVITY_LAYER ]</div>
+        </article>
+
+        <article class="skill-panel reveal">
+          <div class="skill-icon">03</div>
+          <h3>Tools & Concepts</h3>
+          <p>Documenting work, collaborating on assignments, and improving usability.</p>
+          <div class="chip-list">
+            <span>Git / GitHub</span><span>SQL Basics</span><span>UI Design</span>
+            <span>Technical Docs</span><span>Cybersecurity Basics</span>
+          </div>
+          <div class="panel-foot">[ TOOLCHAIN_READY ]</div>
+        </article>
+      </div>
+
+      <div class="skill-note reveal">
+        <span class="terminal-green">[+]</span>
+        Skills grow through practice. This list reflects tools and topics I've used or studied.
+      </div>
+    </section>
+
+    <!-- PROJECTS: ONE LARGE IMAGE PER PROJECT -->
+    <section class="section-shell section-block" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="prompt">03 //</span> repositories/</p>
+        <h2>Selected <span class="green">projects</span></h2>
+        <p class="section-subtitle">A few builds, experiments, and university projects.</p>
+      </div>
+
+      <div class="project-toolbar reveal">
+        <div class="repo-count"><span class="status-dot"></span> REPOSITORIES <b>06</b></div>
+
+        <div class="filter-group" role="group" aria-label="Filter projects">
+          <button class="filter-btn active" data-filter="all">all</button>
+          <button class="filter-btn" data-filter="iot">iot</button>
+          <button class="filter-btn" data-filter="software">software</button>
+          <button class="filter-btn" data-filter="web">web</button>
+          <button class="filter-btn" data-filter="research">research</button>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal" data-category="iot">
+          <div class="project-top">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-type">IOT / EMBEDDED</span>
+            <span class="repo-star">✳ FEATURED</span>
+          </div>
+
+          <h3>IoT Medicine Dispenser</h3>
+          <p class="project-desc">
+            An ESP8266-based dispenser concept with scheduled dispensing,
+            servo motor control, reminders, and remote control through a
+            web or mobile interface.
+          </p>
+
+         <!-- Medicine Dispenser picture and video -->
+<div class="project-media">
+
+  <a class="project-image"
+     href="images/medicine-dispenser.jpg"
+     target="_blank"
+     rel="noopener noreferrer">
+    <img src="images/medicine-dispenser.jpg"
+         alt="IoT Medicine Dispenser"
+         loading="lazy">
+    <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
+  </a>
+
+  <div class="project-video">
+    <video controls preload="metadata">
+      <source src="videos/medicine-dispenser.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+</div>
+
+          <div class="chip-list"><span>ESP8266</span><span>C++</span><span>IoT</span><span>Servo</span></div>
+
+          <div class="project-bottom">
+            <span>01 / 06</span>
+        
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="software">
+          <div class="project-top">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-type">JAVA / GUI</span>
+            <span class="repo-star">✳ FEATURED</span>
+          </div>
+
+          <h3>Energy Hero — SDG 7</h3>
+          <p class="project-desc">
+            A Java GUI project focused on clean energy awareness, with
+            interactive screens,quizzes, progress, badges, and a leaderboard.
+          </p>
+
+          
+<div class="project-gallery">
+
+  <a class="project-image" href="images/energy-hero.jpg"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/energy-hero.jpg"
+         alt="Energy Hero application screenshot"
+         loading="lazy">
+  </a>
+
+  <a class="project-image" href="images/energy-hero2.jpg"
+     target="_blank" rel="noopener noreferrer">
+    <img src="images/energy-hero2.jpg"
+         alt="Energy Hero second application screenshot"
+         loading="lazy">
+  </a>
+
+</div>
+
+
+          <div class="chip-list"><span>Java</span><span>GUI</span><span>SDG 7</span></div>
+
+          <div class="project-bottom">
+            <span>02 / 06</span>
+           
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="web">
+          <div class="project-top">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-type">WEB DEVELOPMENT</span>
+          </div>
+
+          <h3>FitLife</h3>
+          <p class="project-desc">
+            A PHP-based web project concept for fitness-related content
+            and user interaction, developed as part of coursework.
+          </p>
+
+          <a class="project-image" href="images/fitlife.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="images/fitlife.jpg" alt="FitLife website screenshot" loading="lazy">
+            <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
+          </a>
+
+          <div class="chip-list"><span>PHP</span><span>SQL</span><span>MySQL</span><span>XAMPP</span></div>
+
+          <div class="project-bottom">
+            <span>03 / 06</span>
+          
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="software">
+  <div class="project-top">
+    <span class="repo-icon">⌘</span>
+    <span class="repo-type">HCI / UI UX</span>
+  </div>
+
+  <h3>EV Dashboard Interface</h3>
+  <p class="project-desc">
+    A Human-Computer Interaction (HCI) project focused on designing
+    an electric vehicle dashboard interface with intuitive navigation,
+    clear information presentation, and a user-friendly experience.
+  </p>
+
+  <a class="project-image" href="images/EV_Dashboard.jpg" target="_blank" rel="noopener noreferrer">
+    <img src="images/EV_Dashboard.jpg" alt="EV Dashboard Interface project" loading="lazy">
+    <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
+  </a>
+
+  <div class="chip-list"><span>HCI</span><span>UI/UX Design</span><span>EV Dashboard</span></div>
+
+  <div class="project-bottom">
+    <span>07 / 07</span>
+    <a class="project-link" href="https://canva.link/susta9rcildqmyk" target="_blank" rel="noopener noreferrer">View project ↗</a>
+  </div>
+</article>
+
+        <article class="project-card reveal" data-category="web">
+          <div class="project-top">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-type">WEB DEVELOPMENT</span>
+          </div>
+
+          <h3>BeFitNow!</h3>
+          <p class="project-desc">
+           A fitness website featuring
+            workout planning, exercise tracking, a rest
+            timer, and progress statistics.
+          </p>
+
+          <a class="project-image" href="images/BeFitNow.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="images/BeFitNow.jpg" alt="BeFitNow! fitness website." loading="lazy">
+            <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
+          </a>
+
+          <div class="chip-list"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+
+          <div class="project-bottom">
+            <span>05 / 06</span>
+            <a class="project-link" href= https://aaaricjayden.github.io/BeFitNow-/ target="_blank" rel="noopener noreferrer">View project link ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal" data-category="web">
+          <div class="project-top">
+            <span class="repo-icon">⌘</span>
+            <span class="repo-type">WEB DEVELOPMENT</span>
+          </div>
+
+          <h3>Learn2Code</h3>
+          <p class="project-desc">
+            A collection of small C, C++ and Java programming exercises focused on 
+            understanding programming fundamentals, problem-solving, and writing efficient code.
+          </p>
+
+          <a class="project-image" href="images/Learn2Code.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="images/Learn2Code.jpg" alt="Learn2Code coding learning website." loading="lazy">
+            <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
+          </a>
+
+          <div class="chip-list"><span>HTML</span><span>CSS</span><span>JAVASCRIPT</span></div>
+
+          <div class="project-bottom">
+            <span>06 / 06</span>
+            <a class="project-link" href="https://aaaricjayden.github.io/Learn2Code/" target="_blank" rel="noopener noreferrer">View project link ↗</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="project-hint reveal">
+        <span class="terminal-green">TIP:</span>
+        Replace each sample image path and repository link with your own.
+      </p>
+    </section>
+
+    <!-- EDUCATION AND EXPERIENCE -->
+    <section class="section-shell section-block" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="prompt">04 //</span> timeline.log</p>
+        <h2>Education & <span class="green">experience</span></h2>
+        <p class="section-subtitle">The path that brought me here.</p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">CURRENT STUDIES</div>
+          <div class="timeline-card">
+            <span class="timeline-label">EDUCATION / 02</span>
+            <h3>Universiti Malaysia Sarawak (UNIMAS)</h3>
+            <p class="timeline-role">Network Computing</p>
+            <p>Studying computing, networking, and related technologies through coursework and team projects.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">PRE-UNIVERSITY</div>
+          <div class="timeline-card">
+            <span class="timeline-label">EDUCATION / 01</span>
+            <h3>Politeknik Kuching Sarawak</h3>
+            <p class="timeline-role">Diploma in Electrical Engineering (Communication)</p>
+            <p>Built a foundation in electronics and communication systems, including an IoT medicine dispenser project using ESP8266.</p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-date">29 JAN — 14 JUN 2024</div>
+          <div class="timeline-card">
+            <span class="timeline-label">INDUSTRIAL TRAINING</span>
+            <h3>Sarawak Energy Berhad / SESCO</h3>
+            <p class="timeline-role">Industrial Trainee</p>
+            <p>Gained exposure to transmission and distribution operations, protection and control, smart meter installation, customer care, billing, and technical support across assigned units.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section-shell section-block contact-section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow"><span class="prompt">05 //</span> connect.sh</p>
+        <h2>Let's <span class="green">connect</span></h2>
+        <p class="section-subtitle">Have a project, internship opportunity, or idea to discuss?</p>
+      </div>
+
+      <div class="contact-terminal reveal">
+        <div class="window-bar">
+          <span class="window-dots"><i></i><i></i><i></i></span>
+          <span>contact --interactive</span>
+          <span class="window-lock">READY</span>
+        </div>
+
+        <div class="contact-body">
+          <p><span class="terminal-green">guest@jayden:~$</span> ./send_a_message</p>
+          <p class="contact-message">
+            I'm open to learning, collaboration, and opportunities where I can
+            grow as a developer and computing student.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:YOUR_EMAIL@example.com" class="contact-link">
+              <span class="contact-symbol">@</span>
+              <span><small>EMAIL</small><b>YOUR_EMAIL@example.com</b></span>
+              <span class="external">↗</span>
+            </a>
+
+            <a href="https://github.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-symbol">⌘</span>
+              <span><small>GITHUB</small><b>github.com/YOUR_USERNAME</b></span>
+              <span class="external">↗</span>
+            </a>
+
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="contact-link">
+              <span class="contact-symbol">in</span>
+              <span><small>LINKEDIN</small><b>Add your profile link</b></span>
+              <span class="external">↗</span>
+            </a>
+          </div>
+
+          <p class="contact-end">
+            <span class="terminal-green">[OK]</span>
+            Waiting for connection<span class="typing-caret">▋</span>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark">[</span>JAYDEN<span class="brand-mark">]</span><span class="brand-cursor">_</span>
+      </a>
+
+      <p>Built with <span class="green">HTML</span>, <span class="green">CSS</span> & <span class="green">JavaScript</span>.</p>
+
+      <p>© <span id="year"></span> Jayden Aaric <span class="footer-separator">//</span> END OF TRANSMISSION</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="back-top" aria-label="Back to top">↑</button>
+</body>
+</html>
