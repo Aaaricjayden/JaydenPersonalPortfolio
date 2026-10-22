@@ -1646,115 +1646,140 @@ h1 {
   }
   /* Medicine Dispenser Video */
 /* Medicine Dispenser: Image and Video Side by Side */
+
+/* =========================================
+   MEDICINE DISPENSER: IMAGE + VIDEO THUMBNAIL
+   ========================================= */
+
 .project-media {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    align-items: start;
-    margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin-top: 17px;
+  align-items: stretch;
 }
 
-.project-media .project-image {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    margin: 0;
-}
-
-/* Keep the Medicine Dispenser picture and video together */
-.project-card .project-media {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    width: 100%;
-    align-items: start;
-}
-
-/* Medicine Dispenser: Equal Image and Video Sizes */
-.project-media {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    width: 100%;
-    align-items: stretch;
-}
-
-/* Medicine Dispenser: Equal Image and Video Sizes */
-.project-media {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    width: 100%;
-    align-items: stretch;
-}
-
+/* Keep both media boxes the same size */
 .project-media > .project-image,
-.project-media > .project-video {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    margin: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+.project-media > .video-thumbnail {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(69, 255, 134, .25);
+  border-radius: 3px;
+  background: #08130d;
 }
 
+/* Project photo */
 .project-media > .project-image img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.project-media > .project-video {
-    border: 1px solid var(--green);
-    border-radius: 5px;
-    background: #050b08;
+/* Clickable video thumbnail */
+.video-thumbnail {
+  cursor: pointer;
+  isolation: isolate;
 }
 
-.project-media > .project-video video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}/* Medicine Dispenser: Equal Image and Video Sizes */
-.project-media {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    width: 100%;
-    align-items: stretch;
+.video-thumbnail > img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s, filter .3s;
 }
 
-.project-media > .project-image,
-.project-media > .project-video {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    height: auto;
-    aspect-ratio: 16 / 10;
-    margin: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+/* Dark overlay makes the play button easier to see */
+.video-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, .2);
+  pointer-events: none;
+  transition: background .3s;
 }
 
-.project-media > .project-image img {
-    display: block;
-    width: 200%;
-    height: 100%;
-    object-fit: cover;
+.video-thumbnail:hover > img {
+  transform: scale(1.05);
+  filter: brightness(.8);
 }
 
-.project-media > .project-video {
-    border: 1px solid var(--green);
-    border-radius: 5px;
-    background: #050b08;
+.video-thumbnail:hover::after {
+  background: rgba(0, 0, 0, .35);
 }
 
-.project-media > .project-video video {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+/* Play button */
+.video-thumbnail .play-video {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  background: rgba(5, 11, 8, .85);
+  color: var(--green);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: background .2s, color .2s;
 }
+
+.video-thumbnail:hover .play-video {
+  background: var(--green);
+  color: #031009;
+}
+
+/* Watch demo label */
+.video-thumbnail .video-label {
+  position: absolute;
+  z-index: 3;
+  right: 8px;
+  bottom: 8px;
+  padding: 4px 7px;
+  border: 1px solid var(--border);
+  background: rgba(5, 11, 8, .88);
+  color: var(--green);
+  font: .58rem var(--mono);
+  pointer-events: none;
+}
+
+/* Visible keyboard focus */
+.video-thumbnail:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+/* Stack media on smaller screens if necessary */
+@media (max-width: 420px) {
+  .project-media {
+    gap: 8px;
+  }
+
+  .video-thumbnail .play-video {
+    width: 38px;
+    height: 38px;
+  }
+
+  .video-thumbnail .video-label {
+    right: 4px;
+    bottom: 4px;
+    font-size: .48rem;
+  }
 }
