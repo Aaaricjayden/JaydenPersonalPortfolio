@@ -1624,8 +1624,8 @@ h1 {
   }
 }
 
-/* REDUCED MOTION */
 
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1644,35 +1644,33 @@ h1 {
   #matrix-canvas {
     display: none;
   }
-  /* Medicine Dispenser Video */
-/* Medicine Dispenser: Image and Video Side by Side */
+}
 
-/* =========================================
-   MEDICINE DISPENSER: IMAGE + VIDEO THUMBNAIL
-   ========================================= */
-
+/* MEDICINE DISPENSER: IMAGE + VIDEO */
 .project-media {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
   width: 100%;
+  min-width: 0;
   margin-top: 17px;
-  align-items: stretch;
 }
 
-/* Keep both media boxes the same size */
 .project-media > .project-image,
 .project-media > .video-thumbnail {
   position: relative;
   display: block;
   width: 100%;
   min-width: 0;
+  max-width: 100%;
   aspect-ratio: 16 / 10;
+  height: auto;
   margin: 0;
   overflow: hidden;
   border: 1px solid rgba(69, 255, 134, .25);
   border-radius: 3px;
   background: #08130d;
+  box-sizing: border-box;
 }
 
 /* Project photo */
@@ -1680,10 +1678,11 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
 }
 
-/* Clickable video thumbnail */
+/* Video thumbnail */
 .video-thumbnail {
   cursor: pointer;
   isolation: isolate;
@@ -1696,11 +1695,11 @@ h1 {
   display: block;
   width: 100%;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
   transition: transform .3s, filter .3s;
 }
 
-/* Dark overlay makes the play button easier to see */
 .video-thumbnail::after {
   content: "";
   position: absolute;
@@ -1712,7 +1711,7 @@ h1 {
 }
 
 .video-thumbnail:hover > img {
-  transform: scale(1.05);
+  transform: scale(1.04);
   filter: brightness(.8);
 }
 
@@ -1728,12 +1727,12 @@ h1 {
   left: 50%;
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: 1px solid var(--green);
   border-radius: 50%;
-  background: rgba(5, 11, 8, .85);
+  background: rgba(5, 11, 8, .9);
   color: var(--green);
   font-size: 1.2rem;
   cursor: pointer;
@@ -1750,88 +1749,38 @@ h1 {
 .video-thumbnail .video-label {
   position: absolute;
   z-index: 3;
-  right: 8px;
-  bottom: 8px;
-  padding: 4px 7px;
+  right: 6px;
+  bottom: 6px;
+  max-width: calc(100% - 12px);
+  padding: 4px 6px;
   border: 1px solid var(--border);
-  background: rgba(5, 11, 8, .88);
+  background: rgba(5, 11, 8, .9);
   color: var(--green);
-  font: .58rem var(--mono);
+  font: .55rem var(--mono);
   pointer-events: none;
 }
 
-/* Visible keyboard focus */
+/* Keyboard accessibility */
 .video-thumbnail:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 3px;
 }
 
-/* Stack media on smaller screens if necessary */
-@media (max-width: 420px) {
-  .project-media {
-    gap: 8px;
-  }
-
-  .video-thumbnail .play-video {
-    width: 38px;
-    height: 38px;
-  }
-
-  .video-thumbnail .video-label {
-    right: 4px;
-    bottom: 4px;
-    font-size: .48rem;
-  }
-}
-  
-/* FIX: Keep Medicine Dispenser media inside its card */
-
-.project-card {
-  min-width: 0;
-  overflow: hidden;
-}
-
-.project-media {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.project-media > .project-image,
-.project-media > .video-thumbnail {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
-  height: auto;
-  aspect-ratio: 16 / 10;
-  margin: 0;
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.project-media > .project-image img,
-.project-media > .video-thumbnail img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Smaller gap and play button on small screens */
+/* Smaller screens */
 @media (max-width: 420px) {
   .project-media {
     gap: 7px;
   }
 
-  .project-media .play-video {
-    width: 36px;
-    height: 36px;
+  .video-thumbnail .play-video {
+    width: 34px;
+    height: 34px;
+  }
+
+  .video-thumbnail .video-label {
+    right: 3px;
+    bottom: 3px;
+    padding: 3px 4px;
+    font-size: .43rem;
   }
 }
-
