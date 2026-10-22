@@ -286,12 +286,28 @@
     <span class="image-placeholder">[ ADD PROJECT IMAGE ]</span>
   </a>
 
-  <div class="project-video">
-    <video controls preload="metadata">
-      <source src="videos/medicine-dispenser.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
-  </div>
+    <div
+      class="video-thumbnail"
+      data-video-src="videos/medicine-dispenser.mp4"
+      role="button"
+      tabindex="0"
+      aria-label="Play IoT Medicine Dispenser demonstration video"
+    >
+      <img
+        src="images/medicine%20dispenser%20vid.jpg"
+        alt="IoT Medicine Dispenser video thumbnail"
+        loading="lazy"
+      >
+
+      <button
+        class="play-video"
+        type="button"
+        aria-label="Play demonstration video"
+        tabindex="-1"
+      >▶</button>
+
+      <span class="video-label">▶ WATCH DEMO</span>
+    </div>
 
 </div>
 
